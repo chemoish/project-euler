@@ -11,17 +11,25 @@ Find the difference between the sum of the squares of the first one hundred natu
 */
 
 (function () {
-  var max = 100,
-      sum_square = 0,
-      square_sum = 0;
+  function calculate() {
+    var max = 100,
+        sum_square = 0,
+        square_sum = 0;
 
-  for (var i = 0; i <= max; i++) {
-    sum_square += i;
+    for (var i = 0; i <= max; i++) {
+      sum_square += i;
+    }
+
+    for (var i = 0; i <= max; i++) {
+      square_sum += Math.pow(i, 2);
+    }
+
+    console.log(Math.pow(sum_square, 2) - square_sum);
   }
 
-  for (var i = 0; i <= max; i++) {
-    square_sum += Math.pow(i, 2);
-  }
+  console.time('calculate');
 
-  console.log(Math.pow(sum_square, 2) - square_sum);
+  calculate();
+
+  console.timeEnd('calculate');
 }());
